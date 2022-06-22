@@ -32,25 +32,29 @@ class _SettingScreenState extends State<SettingScreen> {
       appBar: _appBar(),
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 20),
-        child: Form(
-          key: _formKey,
-          onChanged: (){
-            _formKey.currentState!.save();
-          },
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-             
-              _inputField(1),
-              _inputField(2),
-              _inputField(3),
-              _inputField(4),
-               SizedBox(
-                height: 15,
+        child: Center(
+          child: SingleChildScrollView(
+            child: Form(
+              key: _formKey,
+              onChanged: (){
+                _formKey.currentState!.save();
+              },
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                 
+                  _inputField(1),
+                  _inputField(2),
+                  _inputField(3),
+                  _inputField(4),
+                   SizedBox(
+                    height: 15,
+                  ),
+                  button(1, "Update")
+                  
+                ],
               ),
-              button(1, "Update")
-              
-            ],
+            ),
           ),
         ),
       ),
