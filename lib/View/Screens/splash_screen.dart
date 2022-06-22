@@ -23,9 +23,6 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   void initState() {
   
-  //  callLocalData();
-//ApiService().getAppointmentApi();
-
     // TODO: implement initState
     Future.delayed(Duration(seconds: 3), () {
       Navigator.pushAndRemoveUntil(
@@ -64,47 +61,6 @@ class _SplashScreenState extends State<SplashScreen> {
   }
 
 
- Future setUserData()async{
-      LocalStorageManger localStorageManger = LocalStorageManger();
-       var meer=   await localStorageManger.setUserData(
-            UserModel(userName: StringManager.userName, 
-          password: StringManager.password,
-          url: StringManager.url,
-          currentDate: "",
-          )
-          );
-          print(meer);
-  }
-
-
-  Future<bool?> getStoredData() async {
-    await localStorageManger.getUserData().then((value) {
-      print("meer $value");
-      if (value != null) {
-        setState(() {
-          isDateExisted = true;
-        });
-      
-
-        return true;
-      } else {
-        setState(() {
-          isDateExisted = false;
-        });
-      
-        return false;
-      }
-    });
-    return null;
-  }
-
-
- Future callLocalData()async{
-    if (isDateExisted==true){
-     await getStoredData();
-    }else{
-    await  setUserData();
-    }
-  }
+ 
 
 }
